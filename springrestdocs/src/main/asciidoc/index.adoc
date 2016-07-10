@@ -1,0 +1,150 @@
+
+= Person-service API
+invidit.de;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+
+Person-service as an documentation example.
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+Person-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PATCH`
+| Used to update an existing resource, including partial updates
+
+| `PUT`
+| Used to update an existing resource, full updates only
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+Person-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| Standard response for successful HTTP requests.
+The actual response will depend on the request method used.
+In a GET request, the response will contain an entity corresponding to the requested resource.
+In a POST request, the response will contain an entity describing or containing the result of the action.
+
+| `201 Created`
+| The request has been fulfilled and resulted in a new resource being created.
+
+| `204 No Content`
+| The server successfully processed the request, but is not returning any content.
+
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+|===
+
+[[resources]]
+= Resources
+
+
+[[resources-person]]
+== Person
+The Person resource is used to create, modify and list people.
+
+
+[[resource-person-list]]
+=== Listing people
+A `GET` request lists all of the service's people.
+
+include::{snippets}/getPersons/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/getPersons/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/getPersons/http-response.adoc[]
+
+
+[[resource-person-get]]
+=== Fetching people
+A `GET` request fetches a specific person.
+
+=== Parameters
+
+include::{snippets}/getPersons/path-parameters.adoc[]
+
+=== Fields
+
+include::{snippets}/getPerson/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/getPerson/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/getPerson/http-response.adoc[]
+
+
+[[resource-person-create]]
+=== Creating people
+A `POST` request creates a new person.
+
+==== Example request
+
+include::{snippets}/createPerson/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/createPerson/http-response.adoc[]
+
+
+[[resource-person-update]]
+=== Updating people
+A `PUT` request updates an existing person.
+
+==== Example request
+
+include::{snippets}/updatePerson/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/updatePerson/http-response.adoc[]
+
+
+[[resource-person-delete]]
+=== Updating people
+A `DELETE` request deletes an existing person.
+
+==== Example request
+
+include::{snippets}/deletePerson/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/deletePerson/http-response.adoc[]
